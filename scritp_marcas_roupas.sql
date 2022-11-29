@@ -7,7 +7,7 @@ CREATE TABLE cliente (
   cpf VARCHAR(18) NOT NULL,
   nome VARCHAR(200) NOT NULL,
   gmail VARCHAR(200) NOT NULL,
-  data_nascimento INT NOT NULL,
+  data_nascimento datetime NOT NULL,
   PRIMARY KEY (cpf));
   
 
@@ -71,7 +71,7 @@ VALUES(
 	'19283782891',
     'Ezequiel Ribas',
     'zekiribas@gmail.com',
-    '2003-04-08'
+     '2003-04-08'
 
 ),
 (
@@ -85,43 +85,43 @@ VALUES(
 	'17670909005',
     'Aigneis',
     'ahakes0@wunderground.com',
-    '2022-10-1'
+    '2022-10-01'
 ),
 (
 	'14031232098',
     'Ariela',
     'asalvadori1@ted.com',
-    '2022-15-2'
+    '2022-12-02'
 ),
 (
 	'16976549080',
     'Filide',
     'fworsfield2@biblegateway.com',
-    '2022-19-1'
+    '2022-05-01'
 ),
 (
 	'23194270079',
     'Sallyanne',
     'sscutts3@ox.ac.uk',
-    '2022-12-2'
+    '2022-12-02'
 ),
 (
 	'12581206071',
     'Langston',
     'lfilliskirk4@digg.com',
-    '2022-20-6'
+    '2022-07-06'
 ),
 (
 	'97353278056',
     'Sharyl',
     'smcilwrick5@edublogs.org',
-    '2022-12-7'
+    '2022-12-07'
 ),
 (
 	'51194604021',
     'Deva',
     'dcalendar6@simplemachines.org',
-    '2022-2-3'
+    '2022-02-03'
 ),
 (
 
@@ -130,4 +130,4 @@ VALUES(
     'daviboff@gmail.com',
     '2022-05-21'
 );
-
+SELECT * FROM cliente;
