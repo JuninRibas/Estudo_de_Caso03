@@ -411,4 +411,13 @@ VALUE (
     49.90,
     539.8
 );
-Select*From pedido;
+	/*UPDATE cliente SET nome = 'Ezequiel Ribas Figueira' WHERE cpf ='19283782891';
+    UPDATE cliente SET nome = 'Kenedi Machado Reis' WHERE nome ='19558930927';
+    UPDATE cliente SET nome = 'Ezequiel Ribas' WHERE nome ='Ezequiel Ribas Figueira';
+    UPDATE cliente SET nome = 'Ezequiel Ribas' WHERE nome ='Ezequiel Ribas Figueira';
+    UPDATE cliente SET nome = 'Ezequiel Ribas' WHERE nome ='Ezequiel Ribas Figueira';
+    
+    DELETE FROM filme WHERE id_filme=6;
+    
+    select * from genero order by id_genero_filme desc;
+*/
