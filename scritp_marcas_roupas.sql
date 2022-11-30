@@ -1,10 +1,10 @@
-DROP DATABASE marcas_roupas;
+/*DROP DATABASE marcas_roupas;*/
 CREATE DATABASE marcas_roupas;
 USE marcas_roupas;
 
 
 CREATE TABLE cliente (
-    cpf VARCHAR(18) NOT NULL,
+    cpf  BIGINT(11) NOT NULL,
     nome VARCHAR(200) NOT NULL,
     gmail VARCHAR(200) NOT NULL,
     data_nascimento DATE NOT NULL,
@@ -37,26 +37,26 @@ CREATE TABLE endereco (
   
   
 CREATE TABLE pedido (
-  cpf VARCHAR(18),
-  nome VARCHAR(50),
+  cpf BIGINT(11) PRIMARY KEY,
+  nome VARCHAR(200),
   preco_camiseta FLOAT NOT NULL,
   qtd_de_camisetas INT(1),
   frete FLOAT NOT NULL,
   total FLOAT NOT NULL,
-  cliente_cpf VARCHAR(20) NOT NULL,
-  PRIMARY KEY (cpf, cliente_cpf) , FOREIGN KEY (cliente_cpf) REFERENCES cliente (cpf));
+  cliente_cpf BIGINT(11),
+  FOREIGN KEY (cliente_cpf) REFERENCES cliente (cpf));
     
     
 CREATE TABLE endereco_has_cliente (
   endereco_cep INT NOT NULL,
-  cliente_cpf VARCHAR(20) NOT NULL,
+  cliente_cpf BIGINT(11) NOT NULL,
   PRIMARY KEY (endereco_cep, cliente_cpf),
     FOREIGN KEY (endereco_cep) REFERENCES endereco (cep),
     FOREIGN KEY (cliente_cpf) REFERENCES cliente (cpf));
     
     
 CREATE TABLE carrinho (
-  pedido_cpf VARCHAR(18) NOT NULL,
+  pedido_cpf BIGINT(11) NOT NULL,
   produto_id_produto INT NOT NULL,
   produto_marca_id_marca INT NOT NULL,
     FOREIGN KEY (pedido_cpf) REFERENCES pedido (cpf),
@@ -138,19 +138,19 @@ INSERT INTO marca(
     marca
 )
 VALUES(
-    'Rybs'
+    'Rybss'
 ),
 (
-	'Nike'
+	'Nikee'
 ),
 (
-	'Hering'
+	'Heringg'
 ),
 (
-	'Reserva'
+	'Reservaa'
 ),
 (
-	'Malwee'
+	'Malweee'
 ),
 (
 	'Colcci'
@@ -176,35 +176,35 @@ INSERT INTO produto(
 )
 VALUE(
 	002,
-	'CAMISETA 3-STRIPES',
+	'CAMISETA 3-STRIPESS',
     'G',
     399.99,
     2
 ),
 (
 	003,
-    'Camiseta Básica Masculina Básica Em Malha H+ - Branco',
+    'Camiseta Básica Masculina Básica Em Malha H+ - BrancoO',
     'GG',
     89.90,
     3
 ),
 (
 	001,
-	'CAMISETA RYBS COMPANY',
+	'CAMISETA RYBS COMPANYY',
 	'M',
 	100.00,
 	1
 ),
 (
 	004,
-    'Camiseta Estampada Moon 2.0 Iii',
+    'Camiseta Estampada Moon 2.0 IiiL',
     'P',
     143.00,
     4
 ),
 (
 	005,
-    'CAMISETA BÁSICA MASCULINA GOLA TEXTURIZADA EM ALGODÃO VERMELHO ESCURO',
+    'CAMISETA BÁSICA MASCULINA GOLA TEXTURIZADA EM ALGODÃO VERMELHO ESCUROO',
     'G',
     50.50,
     5
@@ -256,14 +256,14 @@ VALUE(
     'Quadra QN 327 Conjunto B',
     'Samambaia Sul (Samambaia)',
     'Brasília',
-    'DF'
+    'SC'
 ),
 (
 	69018433,
     'Travessa 7',
     'Lago Azul',
     'Manaus',
-    'AM'
+    'DF'
 ),
 (
 	58432513,
@@ -277,21 +277,21 @@ VALUE(
     'Rua Jerusalém',
     'Água Branca',
     'Francisco Beltrão',
-    'PR'
+    'DF'
 ),
 (
 	79010411,
     'Travessa Real',
     'Monte Castelo',
     'Campo Grande',
-    'MS'
+    'AM'
 ),
 (
 	89070353,
     'Rua Hermann Ramthum',
     'Badenfurt',
     'Blumenau',
-    'SC'
+    'RJ'
 ),
 (
 	64211040,
@@ -331,7 +331,7 @@ INSERT INTO pedido(
 	total
 )
 VALUE (
-	'19283782891',
+	19283782891,
     'CAMISETA RYBS COMPANY',
     100.00,
     1,
@@ -411,13 +411,85 @@ VALUE (
     49.90,
     539.8
 );
-	/*UPDATE cliente SET nome = 'Ezequiel Ribas Figueira' WHERE cpf ='19283782891';
-    UPDATE cliente SET nome = 'Kenedi Machado Reis' WHERE nome ='19558930927';
-    UPDATE cliente SET nome = 'Ezequiel Ribas' WHERE nome ='Ezequiel Ribas Figueira';
-    UPDATE cliente SET nome = 'Ezequiel Ribas' WHERE nome ='Ezequiel Ribas Figueira';
-    UPDATE cliente SET nome = 'Ezequiel Ribas' WHERE nome ='Ezequiel Ribas Figueira';
+	UPDATE cliente SET nome = 'Ezequiel Ribas Figueira' WHERE cpf =19283782891;
+    UPDATE cliente SET nome = 'Kenedi Machado Reis' WHERE cpf =19558930927;
+    UPDATE cliente SET nome = 'Ariela Ribas' WHERE cpf =14031232098;
+    UPDATE cliente SET nome = 'Aigneis Silva' WHERE cpf =17670909005;
+    UPDATE cliente SET nome = 'Deva Fernandes' WHERE cpf =51194604021;
     
-    DELETE FROM filme WHERE id_filme=6;
+    UPDATE marca SET marca = 'RYBS' WHERE id_marca =1;
+	UPDATE marca SET marca = 'NIKE' WHERE id_marca =2;
+	UPDATE marca SET marca = 'HERING' WHERE id_marca =3;
+	UPDATE marca SET marca = 'RESERVA' WHERE id_marca =4;
+	UPDATE marca SET marca = 'MALWEE' WHERE id_marca =5;
     
-    select * from genero order by id_genero_filme desc;
-*/
+    UPDATE produto SET nome = 'CAMISETA RYBS COMPANY' WHERE id_produto =1;
+	UPDATE produto SET nome = 'CAMISETA 3-STRIPES' WHERE id_produto =2;
+	UPDATE produto SET nome = 'Camiseta Básica Masculina Básica Em Malha H+ - Branco' WHERE id_produto =3;
+	UPDATE produto SET nome = 'Camiseta Estampada Moon 2.0 Iii' WHERE id_produto =4;
+	UPDATE produto SET nome = 'CAMISETA BÁSICA MASCULINA GOLA TEXTURIZADA EM ALGODÃO VERMELHO ESCURO' WHERE id_produto =5;
+    
+    UPDATE endereco SET estado = 'SC' WHERE cep =72311002;
+	UPDATE endereco SET estado = 'DF' WHERE cep =69018433;
+	UPDATE endereco SET estado = 'AM' WHERE cep =58432513;
+	UPDATE endereco SET estado = 'PR' WHERE cep =85601860;
+	UPDATE endereco SET estado = 'MS' WHERE cep =79010411;
+    
+    UPDATE pedido set frete =60.00 WHERE cpf = 19283782891;
+    UPDATE pedido set frete =80.00 WHERE cpf = 19558930927;
+    UPDATE pedido set frete =22.50 WHERE cpf = 14031232098;
+    UPDATE pedido set frete =35.00 WHERE cpf = 51194604021;
+    UPDATE pedido set frete =50.00 WHERE cpf = 23194270079;
+    
+    DELETE FROM cliente WHERE cpf=17670909005;
+    DELETE FROM cliente WHERE cpf=14031232098;
+    DELETE FROM cliente WHERE cpf=16976549080;
+    DELETE FROM cliente WHERE cpf=23194270079;
+    DELETE FROM cliente WHERE cpf=12581206071;
+    
+    DELETE FROM marca WHERE id_marca = 11;
+    DELETE FROM marca WHERE id_marca = 12;
+    DELETE FROM marca WHERE id_marca = 13;
+    DELETE FROM marca WHERE id_marca = 14;
+    DELETE FROM marca WHERE id_marca = 15;
+    
+    DELETE FROM produto WHERE id_produto = 002;
+    DELETE FROM produto WHERE id_produto = 010;
+    DELETE FROM produto WHERE id_produto = 003;
+    DELETE FROM produto WHERE id_produto = 007;
+    DELETE FROM produto WHERE id_produto = 009;
+    
+    DELETE FROM endereco WHERE cep= 72311002;
+    DELETE FROM endereco WHERE cep= 69018433;
+    DELETE FROM endereco WHERE cep= 58432513;
+    DELETE FROM endereco WHERE cep= 85601860;
+    DELETE FROM endereco WHERE cep= 79010411;
+    
+    DELETE FROM pedido WHERE cpf =19558930927;
+    DELETE FROM pedido WHERE cpf =14031232098;
+    DELETE FROM pedido WHERE cpf =51194604021;
+    DELETE FROM pedido WHERE cpf =23194270079;
+    DELETE FROM pedido WHERE cpf =97353278056;
+    
+    SELECT*FROM cliente ORDER BY cpf asc;
+	SELECT*FROM marca ORDER BY marca asc;
+	SELECT*FROM produto ORDER BY preco_camiseta asc;
+	SELECT*FROM endereco ORDER BY cidade asc;
+	SELECT*FROM pedido ORDER BY total asc;
+    
+    SELECT*FROM cliente WHERE cpf=19283782891;
+    SELECT*FROM marca WHERE id_marca=1;
+    SELECT*FROM produto WHERE id_produto=002;
+    SELECT*FROM endereco WHERE cep=72311002;
+    SELECT*FROM pedido WHERE cpf=16976549080;
+    
+    SELECT cliente.nome, produto.nome FROM cliente INNER JOIN produto 
+    ON
+    cliente.nome=produto.nome;
+    
+    SELECT endereco.cidade, pedido.nome FROM endereco INNER JOIN pedido 
+    ON
+    endereco.cidade=pedido.nome;
+
+    
+
